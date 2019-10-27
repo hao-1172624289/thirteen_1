@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>登录界面CSS</title>
+    <style type="text/css">
+		.logo-box{
+			width: 404px;
+			height:500px;
+			margin: 120px auto;
+			border: 1px #e5e5e5 solid;
+			box-shadow: 0 4px 18px rgba(0,0,0,0.2);/*阴影效果*/
+			
+		}
+		
+		.bxs-row{
+			margin-bottom: 12px;
+			margin: 10px auto;
+			width: 340px;
+				
+		}
+		.username,.password,.btn{
+			width: 340px;
+			height: 40px;
+			border-radius: 4px;
+			position: relative;
+			top:0px;
+			
+		}
+		.btn{
+			background-color:#1333D3
+		}
+		.m{
+			margin: 36px auto;
+			height:192px;
+			position: relative;
+		
+			font-family: 黑体;
+			color: black;
+			
+		}
+		
+		.tips{
+			text-align: center;
+			font-size: 80px;
+			background-image: url("img_1/5_1_1.jpg");
+			background-size:cover;
+			margin: auto;
+			font-weight:bolder;
+			-webkit-background-clip:text;/*裁剪文本*/
+			color:transparent;/*透明图片*/
+			animation: move 5s infinite alternate;
+					
+		}
+		@keyframes move{
+			0%:{background-position: 0 -30px;}
+			100%{background-position: -200px -30px;}
+		}
+		
+	</style>
+    </head>
+
+    <body>
+    <div class="logo-box">
+      <div class="login" style="">
+        <div class="bxs-row m" style="text-align:center;"><img src="img/abc (4).jpg" width="340" height="98" alt=""/> <span class="tips">权限登录</span></div>
+        <div class="bxs-row">
+          <input type="text" class="username" placeholder="用户名" value="admin">
+          <p class=" err err-username"></p>
+        </div>
+        <div class="bxs-row">
+          <input type="password" class="password" placeholder="密码">
+          <p class="err err-password"></p>
+        </div>
+        <div class="bxs-row">
+          <input type="submit" class="submit btn" value="登录">
+        </div>
+      </div>
+      <div class="verBox">
+        <div id="imgVer" style="display:inline-block;"></div>
+      </div>
+    </div>
+</body>
+</html>

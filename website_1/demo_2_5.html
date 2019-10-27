@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片随机背景</title>
+</head>
+
+<body>
+		这大概就是你想要的吧？
+	 <SCRIPT language=javascript>
+	  		var index=0；
+			var time=1000；
+			bg = new Array(7); 		//设定图片数量
+			bg[0] = 'img/a1.png';	//显示的图片路径
+			bg[1] = 'img/a3.png';
+			bg[2] = 'img/a4.png';
+			bg[3] = 'img/a6.png';
+			bg[4] = 'img/a3.png';
+			bg[5] = 'img/a2.jpg';
+			bg[6] = 'img/a8.jpg';
+	 
+	  		setInterval(bg_scan,time);	 
+		 	function bg_scan() {
+			index = Math.floor(Math.random() * bg.length); 
+		
+			/*document.write("<BODY BACKGROUND="+'img/a6.png'+">");*/
+				document.body.style.backgroundImage = "URL("+bg[index]+")";  //显示对应的图片
+			} 
+		
+		  
+		
+
+		
+		 
+	
+
+
+
+
+	</SCRIPT>
+</body>
+</html>

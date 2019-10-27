@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>元素位置</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			paddding:0;
+		}
+		
+		#box{
+			width:1200px;
+			height:2000px;
+			box-shadow: 1px 2px 18px #e4e4e4;
+			margin: 20px auto;
+			position:relative;
+			/*position: absolute;*/
+	
+		}
+		
+		#box .header{
+			width: 1000px;
+			height: 100px;
+			/*position: absolute;*/
+			position:relative;
+			top:10px;
+			left: -30px;
+			background-color:rgba(0,0,0,0.1);
+			
+		}
+		
+		#box .article{
+			width: 1000px;
+			height:600px;
+			position: relative;
+			top:140px;
+
+			background-color:rgba(2,3,4,0.1);
+		}
+		#box .article .a{
+			width: 400px;
+			height:120px;
+			position: relative;
+			background-color:rgba(62,234,54,0.3);
+			
+		}
+		
+		#box .article .b{
+			width: 500px;
+			height:120px;
+			position: absolute;
+			top:10px;
+			left:-10px;
+			background-color:rgba(162,23,54,0.3);
+			
+		}
+		
+		#box .article .c{
+			width:600px;
+			height:120px;
+			position:relative;
+	/*		top:20px;*/
+			background-color:rgba(62,34,254,0.3);
+			
+		}
+		
+		#box .article .d{
+			width: 700px;
+			height:120px;
+			position:relative;
+		/*	top:40px;
+			left:-20px;*/
+			background-color:red;
+		}
+	
+		
+		#box .article .f{
+			width: 800px;
+			height:120px;
+			position:absolute;
+			/*top:0px;*/
+
+			background-color:yellow;
+		}
+		
+	
+	
+	</style>
+</head>
+
+<body>
+	<div id="box">
+		<div class="header">
+			<div class="logo"></div>
+			<div class="meau"></div>
+		</div>
+		
+		<div class="article">
+			<div class="a"></div>
+			<div class="b"></div>
+			<div class="c"></div>
+			<div class="d"></div>
+			<div class="e"></div>
+			<div class="f"></div>
+		</div>
+		
+		<div class="footer">
+		
+		</div>
+	
+	
+	</div>
+</body>
+</html>

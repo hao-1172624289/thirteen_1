@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表单的使用</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		body{
+			font-family:宋体;
+		/*	background-image: url("img/img_2.jpg");*/
+	
+		/*	background-size: cover;*/
+			background-size: contain;
+			background-repeat: no-repeat;
+		/*	background-position: center;*/
+			background-position: 180px 30px;
+		}
+		
+		.box{
+			width:480px;
+			height: 400px;
+			margin: 160px auto;
+			background-color:white;
+			box-shadow: 0 4px 18px rgba(0,0,0,0.2);/*阴影效果*/
+			background-attachment: fixed;
+		}
+		
+		
+		
+		.top{
+			width:300px;
+			text-align: center;
+			text-shadow:6px 10px 2px #f4f4f4;
+			margin: 30px auto;
+			padding-top: 40px;
+			
+			font-color: #333030;
+		}
+		
+		.a1{
+			width:80%;
+			text-align: center;
+			margin: 20px auto;
+			line-height:40px;
+			font-size:18px;			
+		}
+		
+		.font1{
+			width: 200px;
+			height: 20px;	
+			
+		}
+		
+		.font2{
+			width: 80%;
+			height: 30px;
+			margin-top: 30px;
+			background-color: #1267EB;
+			border-radius: 6px;
+		}
+		
+		.font3{
+			width: 200px;
+			height: 26px;
+		}
+		
+		.gender{
+			text-align: left;
+			
+			padding-left: 44px;
+		}
+		
+	</style>
+
+</head>
+
+
+<body>
+	
+	<div class="box">
+		<div class="top"><h1>用户注册</h1></div>
+		<div class="a1">
+	<form method="post" action="">
+    	账&nbsp;&nbsp;号:<input class="font1" type="text" name="user" /> <br/>
+        密&nbsp;&nbsp;码:<input  class="font1" type="password" name="user_mm" /> <br/>
+        出生日期:<input class="font1"  type="date" name="date"/> <br/>
+        <div class="gender">
+		性&nbsp;&nbsp;别:&nbsp;&nbsp;<input type="radio" name="gender" value="男" checked />男生
+        		&nbsp;&nbsp;<input type="radio" name="gender" value="女" />女生<br/>
+			</div>
+        <div class="gender"> 爱&nbsp;&nbsp;好:<select  class="font3" size="1" name="hobby">
+        		<option >游泳</option>
+                <option >跑步</option>
+                <option >篮球</option>
+                <option >绘画</option>
+     		 </select><br/>
+			</div>
+         	<input  class="font2" type="submit" name="s1" value="提&nbsp;交" />  
+    </form>
+	</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单事件</title>
+</head>
+<body>
+    <form name="form1" action="" onreset="on_onreset()" onsubmit="on_submit()">
+        <table>
+        <tr>
+            <td><label for="">Text:</label></td>
+            <td><input type="text" id="idtext" onfocus="onfocus" name="nameText" onkeydown="on_keydown(event)" ></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="reset" value="重置" onclick="on_click()">
+                <input type="submit" value="提交" ondblclick="on_blclick()">
+            </td>
+        </tr>
+        </table>
+        
+    </form>
+    <script language="javascript">
+        function on_click(){
+            console.log("单击");
+
+        }
+        function on_blclick(){
+            console.log("双击");
+        }
+        function on_onreset(){
+            return console.log("重置：" + form1.nameText.value);
+
+        }
+        function on_submit(){
+            return console.log("提交：" + form1.nameText.value);
+
+        }
+        function on_keydown(e){
+            var keynum;
+            var keychar;
+            if(window.event) {
+                keynum = e.keyCode;
+            } else if (e.which) {
+                keynum = e.which;
+            }
+
+            console.log(keynum);
+            keychar = String.fromCharCode(keynum);
+            console.log(keychar);
+        }
+/*
+         function on_keyup(e){
+            var keynum;
+            var keychar;
+            if(window.event) {
+                keynum = e.keyCode;
+            } else if (e.which) {
+                keynum = e.which;
+            }
+
+            console.log(keynum);
+            keychar = String.fromCharCode(keynum);
+            console.log("onkeypress"+keychar);
+        }*/
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自适应高度</title>
+    <style type="text/css">
+        html,body{
+            height: 100%;
+            margin: 0;
+        }
+
+
+
+        #left{
+            width: 30%;
+            height: 100%;
+            background-color:blue;
+            border: 1px solid red;
+            position: absolute;
+            z-index: 1;
+        }
+        #right{
+            width: 70%;
+            height: 100%;
+            background-color:yellow;
+            border: 1px solid red;
+            position: absolute;
+            float: right;
+            z-index: 1;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="left"></div>
+        <div id="right"></div>
+    </div>
+
+</body>
+</html>

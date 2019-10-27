@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS转场特效</title> 					
+	<style type="text/css">
+		#ab:hover{			/*鼠标光标移到图片的时候*/
+			width: 75px;
+			height: 75px;
+			position: relative;
+			animation: ab 5s infinite;
+			-moz-animation:ab 5s infinite;
+			-webkit-animation::ab 5s infinite;							
+			-o-animationactive:ab 5s infinite;
+			
+												
+
+		}
+		/*浏览器Firefox4 Chrome、Safari */
+		@keyframes ab{
+			0% {transform: rotate(0deg);left: 0px;}
+			25%{transform: rotate(20deg);left:0px;}
+			50%{transform: rotate(0deg);left: 0px;}
+			100%{transform: rotate(-360deg);left: 0px;}
+			
+		}
+
+		@-webkit-keyframes ab{
+			0% {transform: rotate(0deg);left: 0px;}
+			25%{transform: rotate(20deg);left:0px;}
+			50%{transform: rotate(0deg);left: 0px;}
+			100%{transform: rotate(-360deg);left: 0px;}	
+		}
+		@-o-keyframes ab{
+			0% {transform: rotate(0deg);left: 0px;}
+			25%{transform: rotate(20deg);left:0px;}
+			50%{transform: rotate(0deg);left: 0px;}
+			100%{transform: rotate(-360deg);left: 0px;}
+		} 
+		@-moz-keyframes ab{
+			0% {transform: rotate(0deg);left: 0px;}
+			25%{transform: rotate(20deg);left:0px;}
+			50%{transform: rotate(0deg);left: 0px;}
+			100%{transform: rotate(-360deg);left: 0px;}
+		}
+	</style>
+</head>
+
+<body>
+	<img id="ab"src="img/39.png" width="75" height="75" alt=""/>
+	
+	
+</body>
+</html>

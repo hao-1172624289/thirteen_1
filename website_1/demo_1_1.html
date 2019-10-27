@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>自适应背景</title>
+    <style type="text/css">
+        #web_bg{
+            /*整个div固定在屏幕的最上方和最左方*/
+            position:fixed;/*同absolutive一样,fixed是会一直让你的模块处于屏幕的某位置不会因为滚轮的滚动,改变位置*/
+            top: 0;
+            left: 0;
+/*            上面前两句是让整个div跟屏幕实现一模一样的大小，从而达到全屏效果，而min-width是为了实现让
+           屏幕宽度在1000px以内时，div的大小保持不变，也就是说在这种情况下，缩放屏幕宽度时，
+           图片不要缩放（只有在1000px以内才有效*/
+            width:100%;
+            height:100%;
+            min-width: 1000px;
+/*              这个的目的是让整个div在HTML页面中各个层级的下方，正常情况下，第一个创建的层级z-index的值是0，
+            所以如果我们这里写成-1也可以实现，不过这里写-10是确保整个div在最下面，因为如果页面中层级太多了
+            有的时候用-1不一定在最下面，但如果写成-100这样大数字的也没有什么意义。用index:-10 以此能达到看上
+            去像背景图片，其实是一个最普通的div，只是层级关系变了，
+            才让人看上去看是背景图片。*/
+            z-index:-10;
+
+            zoom: 1;
+           
+            background-color: #fff;
+            background-repeat: no-repeat;
+           /* 下面三句是一个意思，就是让图片随屏幕大小同步缩放，但是有部分可能会被裁切，不过不至于会露白，
+            下面两句是为chrome和opera浏览器作兼容。*/
+            background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            
+            background-position: center 0;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+   背景图片
+ 	<div id="web_bg" style="background-image: url(LOL_1.jpg);"></div>
+    
+</div>
+</body>
+</html>
+
+
+
+

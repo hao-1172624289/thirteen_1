@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>鼠标不同方向移入</title>
+	<style type="text/css">
+		*{
+			margin: 0;padding: 0;
+		}
+		
+		
+		#wrap{
+			width:1200px;
+			height:360px;
+			margin:100px auto;
+		}
+		
+		#wrap ul{
+			width: 1200px;
+			height:360px;
+
+		}
+		
+		#wrap ul li{
+			width:230px;
+			height:360px;
+			list-style:none;
+			float: left;
+			margin-right: 12px;
+			position: relative;
+			overflow:hidden;
+		
+		}
+		
+		#wrap ul li img{
+			display: block;
+		}
+		
+		#wrap ul li .cover{
+			width: 230px;
+			height: 360px;
+			position: absolute;
+			top:0px;
+			left:230px;
+			background: url(img_1/9_5_new-bg.png);
+			
+		}
+		
+		#wrap ul li .cover p{
+			text-align: center;
+		/*	display: none;*/
+		}
+		
+		#wrap ul li .cover p.p1{
+			padding-top: 160px;
+		}
+		
+
+	
+	
+	</style>
+</head>
+
+<body>
+	
+	<div id="wrap">
+		<ul>
+			<li><img src="img_1/9_5_1.jpg" alt="">					
+					<div class='cover'>
+						<p class='p1'>夏装新品发布 8折起</p>
+						<p>点击进入</p>
+					</div>
+			</li>
+			<li><img src="img_1/9_5_2.jpg" alt="">
+					<div class='cover'>
+						<p class='p1'>夏装新品发布 8折起</p>
+						<p>点击进入</p>
+					</div></li>
+			<li><img src="img_1/9_5_3.jpg" alt="">					
+					<div class='cover'>
+						<p class='p1'>夏装新品发布 8折起</p>
+						<p>点击进入</p>
+					</div></li>
+			<li><img src="img_1/9_5_4.jpg" alt="">					
+					<div class='cover'>
+						<p class='p1'>夏装新品发布 8折起</p>
+						<p>点击进入</p>
+					</div></li>
+			<li  style="margin-right: 0px"><img src="img_1/9_5_5.jpg" alt="">					
+					<div class='cover'>
+						<p class='p1'>夏装新品发布 8折起</p>
+						<p>点击进入</p>
+					</div></li>
+		
+		</ul> 
+	
+	</div>
+	
+	<script language="javascript" src="js_1/jquery-3.4.1.min.js"></script>
+	<script language="javascript" src="js_1/demo_9_5.js"></script>
+</body>
+</html>

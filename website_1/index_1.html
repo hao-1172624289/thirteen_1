@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>测试一</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;			
+		}
+	
+		
+		html{
+			height: 100%;
+		}
+
+		
+		
+		body{
+			height: 100% ;
+			/*background: url(img/4.jpeg);*/
+			font-size:18px;
+			
+		}
+		
+		#box{
+			width:1000px;
+			height: 1800px;
+			margin: 20px auto;
+			box-shadow: 1px 2px 18px #e5e5e5;
+			position: relative;
+		}
+		
+		#box .m{
+			width: 200px;
+			height:180px;
+			position: absolute;
+			top:40px;
+			left: 40px;
+			border: 2px solid #ff33ff;
+			background-image: url(img/2.jpg);
+			background-size: cover;
+		}
+		
+		.m p{
+			text-align: center;
+			font-size: 28px;
+			font-family: "微软雅黑";
+			font-weight: bold;
+			color: #123CD4;
+			margin-top:20px;
+			margin-left: 10px;
+			letter-spacing: 8px;
+		}
+
+		 .button1
+		{
+			width:110px;
+			height: 30px;
+			margin:12px 46px;
+			border-radius:3px;
+			font-size: 16px;
+			font-family: "幼圆";
+			font-weight: bold;
+			background: none;
+			color:#086B9C;
+			border-width: 1px;
+			outline: none;
+			
+			
+		}
+		
+		#box .n0{
+			width: 200px;
+			height:180px;
+			position: absolute;
+			top:40px;
+			left: 280px;
+			border: 2px solid #ff33ff;
+			background-image: url(img/3.jpg);
+			background-size:100% 100%;	
+			transition:background-position 4s,background-size 4s;
+			-moz-transition:background-position 4s,background-size 4s; /* Firefox 4 */
+			-webkit-transition:background-position 4s,background-size 4s; /* Safari and Chrome */
+			-o-transition:background-position 4s,background-size 4s;/* Opera */
+		}
+		
+/*
+		#box .n0:hover{
+			background-position: 50% 50%;
+			background-size:150% 150%;
+		}
+*/
+
+		
+		#box .n1{
+			width: 200px;
+			height:180px;
+			position: absolute;
+			top:40px;
+			left: 520px;
+			border: 2px solid #ff33ff;
+			background-image: url(img/3.jpg);
+			background-size:150% 150%;	
+			background-position:50% 50%;
+		}
+
+		#box .q1_1{
+			width:200px;
+			height:180px;
+			border:2px solid #ff33ff;
+			position:absolute;
+			top:240px;
+			left:40px;
+			
+		
+		}
+
+	
+	</style>
+</head>
+
+<body>
+	<div id="box">
+	
+
+
+		<div class="m">
+			<p id="p1" class="p1">欢乐时光</p>
+			<input id="btn1" class="button1" type="button" onClick="btn1();" value="打开抽奖页面" name="btn1" >
+			<input id="btn4" class="button1"  type="button" onClick="btn4();" value="关闭页面" name="btn1">
+		</div>
+		
+		<div class="n0">
+		
+			
+		
+		</div>
+		
+		<div class="n1">
+		
+		
+		
+		</div>
+
+		<div id="q1" class="q1_1">
+				<p>这是第一个段落</p>
+				<p>这是第二个段落</p>
+				<p>这是第三个段落</p>
+		</div>
+	
+	
+	</div>
+	<script language="javascript" src="js_1/jquery-3.4.1.min.js"></script>
+	<script language="javascript">
+		
+			var a;  //定义一个新窗口
+			var b;	//定义一个新窗口
+			var flag; //定义一个新窗口打开是的标志
+			var n0 = document.getElementsByClassName('n0');  
+			var q1 = document.getElementById('q1');
+			
+			
+			var q1_ChirldNode = q1.childNodes;
+			var q1_parent = q1.parentNode;
+		
+			var p1 = document.createElement('p');
+			p1.innerText = '这是多么的优秀';
+			q1.appendChild(p1);
+			console.log(p1.innerText);
+		
+			var q1_ParentNodeChildNodes = q1.parentNode.childNodes;
+			
+			
+			console.log(q1_ChirldNode[1].innerText,q1_ParentNodeChildNodes[1].innerText);
+			
+			var timer1;
+			var i = 0;
+			
+			/*var x = document.getElementsByName('btn1')[1].value;  //一个集合-数组*/
+			/*var x = document.getElementsByTagName('input');//也是一个集合*/
+			/*console.log( x.length,x[1].value );*/
+			/*var obtn1 = document.getElementsByClassName('p1');//也是集合*/
+			
+			/*console.log( obt1 );*/
+		
+			timer1 = setInterval(function(){
+					i++;
+				if( i == 6 ) i = 1;
+				n0[0].style.backgroundImage= 'url(img/'+i+'.jpg)';
+			
+			},3000);
+
+			function btn1(){	
+				a = window.open("file:///E:/website_1/index_1_1.html","","width=300px,height=200px");
+				a.moveTo(400,200);
+				flag = 1;
+				
+			}
+								
+			function btn4(){
+				if(flag){
+					a.close();
+				}
+				else return false;
+			}
+
+/*		window.onload = function(){
+			var btn1 = document.getElementById('btn1');
+			var innerWidth_1 = window.innerWidth;
+			var outerWidth_1 = window.outerWidth;
+			
+			//浏览器相对于屏幕窗口坐标
+			var xPos = window.screenX|window.screenLeft;  
+			var yPos = window.screenY|window.screenTop;
+			
+		
+			console.log("innerWidth = "+innerWidth_1);
+			console.log("outerWidth = "+outerWidth_1);
+			
+			console.log(xPos,yPos);				
+			btn1.onclick = function(){			
+/*				var a = window.open("","","width=300px,height=300px");
+				var b = window.open("http://www.w3.org","","width=300px,height=300px,top=100,left=100,scrollbars=0");	
+				//相对屏幕
+				a.moveTo(1,1);*/
+				
+/*				//选择框
+				var a = confirm("请选择----");
+				a?console.log("sss"):console.log("ssdd");*/
+				
+/*				//提示框
+				var b = prompt("请输入:","请输入数字");
+					if( b != null&& b != ""){
+						var b2 = parseInt(b);
+						if( b2 == 22){
+							alert("你真是一个天才啊");
+						}
+					}*/
+					
+/*				console.log("当前主机名："+location.hostname);
+				console.log("当前路径名："+location.pathname);
+				console.log("当前url地址："+location.href);
+				console.log("当前端口号："+location.port);
+				console.log("当前的Web协议："+location.protocol);
+			}*/
+			
+		
+			
+			
+		
+
+		
+		
+
+			
+		
+	
+	</script>
+		
+	
+</body>
+</html>

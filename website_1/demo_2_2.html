@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>实现图文混排效果——实现图文介绍页面文本绕图</title>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding: 0px;
+
+		}
+		body{
+			font-size: 16px;
+			background-color: #7CA0F7;
+		}
+		#box{
+			width:100%;
+			height: auto;
+			min-width: 1000px;
+			
+		}
+		
+		#box img{
+			float:left;
+			margin: 7px;
+			margin-right: 24px;
+			opacity:1;
+			padding-left: 30px;
+			
+		}
+		
+		.font01{		
+			text-align: center;
+			font-size: 24px;
+			
+			
+		}
+		
+		#top{
+			width: 100%;
+			height: 30%;
+			background-color:#0039A6;
+			float: left;
+		}
+		
+		#top-left{
+			width:320px;
+			height: 200px;
+			margin: 6px;
+			
+			float: left;
+			
+		}
+		
+		#top-right{
+			width: 600px;
+			height: 200px;
+			float: right;		
+			margin: 6px;
+		}
+		
+		.p1,.p2{
+			text-indent: 36px;
+			font-size: 18px;
+			background-color: #fff;
+		}
+	
+	</style>
+</head>
+
+<body>
+	<div id="box">
+		<div id="top">
+
+			<div id="top-left">
+			<img src="img/abc (3).png" width="322" height="188" alt=""/></div>
+			<div id="top-right">
+			<h4 class="font01">创建品牌视觉价值</h4>
+    		　<p class="p1">不管您是刚成立企业或发展中的企业，蓝逸拥有对品牌深刻理解的策略专家，因为只有对品牌具有敏锐的洞察力，才能为您提供更有效的品牌战略方案，创造品牌的核心价值。</p>
+   			<p class="p2"> 我们提出了唯美品质、一流服务、打造您满意资讯平台的服务理念。为了能够提供专业优质的服务给客户，公司不断发展与国内知名公司的合作交流，逐步推出一系列网络推广..... </p>
+			</div>
+			
+	  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS动画特效</title>
+	<style type="text/css">
+		/*img{
+			animation: ab 5s infinite;
+			-moz-animation:ab 5s infinite;
+			-webkit-animation::ab 5s infinite;
+			-o-animationactive:ab 5s infinite;
+		}
+		@keyframes ab{
+			 0%{top:0px;}
+			25%{top:10px;}
+			75%{top:50px;}
+			100%{top:100px;height: 50px;}
+		}
+		@-moz-keyframes ab{
+			 0%{top:0px;}
+			25%{top:10px;}
+			75%{top:50px;}
+			100%{top:100px;height: 50px;}
+		}
+		@-webkit-keyframes ab{
+			 0%{top:0px;}
+			25%{top:10px;}
+			75%{top:50px;}
+			100%{top:100px;height: 50px;}
+		}
+		@-o-keyframes ab{
+			 0%{top:0px;}
+			25%{top:10px;}
+			75%{top:50px;}
+			100%{top:100px;height: 50px;}
+		}*/
+		
+		div
+	{
+	width:10px;
+	height:10px;
+	background:red;
+	position:relative;
+	animation:mymove 5s infinite;
+	-webkit-animation:mymove 5s infinite; /* Safari and Chrome */
+	z-index:1;
+	}
+
+	@keyframes mymove
+	{
+	0%   {top:0px; left:0px; background:red;}
+	25%  {top:0px; left:100px; background:blue;}
+	50%  {top:100px; left:100px; background:yellow;}
+	75%  {top:100px; left:0px; background:green;}
+	100% {top:0px; left:0px; background:red;}
+}
+
+	@-webkit-keyframes mymove /* Safari and Chrome */
+	{
+	0%   {top:0px; left:0px; background:red;}
+	25%  {top:0px; left:100px; background:blue;}
+	50%  {top:100px; left:100px; background:yellow;}
+	75%  {top:100px; left:0px; background:green;}
+	100% {top:0px; left:0px; background:red;}
+	}
+	
+		#a{
+			font-size: 18px;
+			text-indent: 36px;
+			z-index: 2;
+		}	
+		
+	</style>
+</head>
+ 
+<body>
+	<h1 align="center">约会大作战</h1>
+	<div >
+		<img src="img/img_Q (3).png" width="150" height="150" alt=""/>	
+	</div>
+	<p id="a">
+		人生逆境时,切记忍耐;人生顺境时，切记收敛；人生得意时，切记看淡；人生失意时，切记随缘。心情不好时，当需涵养；心情愉悦时，当需沉潜。静，既是一种休息，更是一种修行。所有的烦恼，都来自于喧嚣；所有的伤痛，都来自于躁动。肉体奔波太久会劳累，灵魂游离太久会成伤。
+	</p>
+<!--<p><strong>注意:</strong>@keyframes不兼容IE 9 and 以及更早版本的浏览器.</p>
+
+<div></div>-->
+</body>
+</html>

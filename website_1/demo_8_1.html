@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>图层调试</title>
+	<style type="text/css" >
+		* {
+			margin:0;
+			padding:0;
+		}
+		#a{
+			width: 400px;
+			height: 400px;
+			position:relative;
+			background: red;
+			z-index: 1;
+		}
+ 
+		#b{
+			width: 600px;
+			height: 40px;
+			position:absolute;
+			top: 0;
+			background: blue;
+			z-index: 2;
+		} 
+
+		#c{
+			width: 100px;
+			height: 40px;
+			position:absolute;
+			background: yellow;
+			z-index: 3;
+			
+		}
+
+	
+	</style>
+ </head>
+ <body>
+	<div id="a"></div>
+	<div id="b"></div>
+	
+	<div id="c"></div>
+ </body>
+</html>

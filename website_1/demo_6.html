@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>滤镜的使用</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		.box{
+			width:800px;
+			height: 1000px;
+			margin: 20px auto;
+		
+		}
+		
+		.artice{
+			width:600px;
+			height: 600px;
+			margin: 20px auto;
+			-webkit-filter:grayscale(0.5); /*灰度滤镜*/
+			-webkit-filter:sepia(0.4);/*怀旧滤镜*/
+			-webkit-filter:saturate(1.6); /*调整网页的饱和度*/
+			-webkit-filter:hue-rotate(40deg);/*调整网页的色调 0——360deg*/
+			-webkit-filter:invert(0.6); /*调整网页图像或者文字处理为底片效果*/
+			-webkit-filter:opacity(0.6);/*透明效果*/
+			-webkit-filter:brightness(1.6);/*亮度 大于1 增加 小于1 减小*/
+			-webkit-filter:contrast(1);/*对比度 大于1 增加 小于1 减小*/
+			-webkit-filter:blur(0.8px);/*模糊度 0px不模糊 越高越模糊*/
+			-webkit-filter:drop-shadow(5px 3px 3px #999);/*为网页元素加上阴影效果*/
+			
+		}
+	
+		.p1{
+			text-align: center;
+			font-size: 24px;
+			line-height: 26px;
+			color: aqua;
+		}
+	</style>
+</head>
+	
+<body>
+	<div class="box">
+		<h4 align="center">滤镜的使用</h4>
+		<div class="artice">
+			<p class="p1">不同滤镜的使用</p><br/>
+			<p align="center" >不同滤镜的使用</p><br/>
+	<img align="center" src="img/1.jpg" width="601" height="360" alt=""/>
+		</div>
+	</div>
+</body>
+</html>

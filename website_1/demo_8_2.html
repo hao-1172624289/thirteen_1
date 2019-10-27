@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #a{
+            width: 400px;
+            height: 200px;
+            border:1px solid blue;
+            margin: 20px;
+            background: url("img_1/demo_8_1.jpg") no-repeat;
+            background-size: 100% 100%;
+            background-size:cover;
+
+        }
+
+        #banner{
+            width: 400px;
+            height: 200px;
+            border:1px solid blue;
+            margin: 20px;
+            position: relative;
+        }
+        #banner .pic img{
+            width: 400px;
+            height: 200px;
+            display:block;
+        }
+        #banner .pic ul li{
+            list-style: none;
+            display: none;
+            position: absolute;
+        }
+
+
+
+
+    
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <div id="a"></div>
+        <div id="banner">
+            <div class="pic">
+                <ul>
+                    <li style="display: block;"><a href="#"><img src="img_1/demo_8_1.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="img_1/demo_8_2.jpg" alt=""></a></li>
+                </ul>               
+            </div>
+
+
+        </div>
+    </div>
+
+    <script language="javascript" src="js_1/jquery-3.4.1.min.js"></script>
+    <script language="javascript">
+
+        $(function(){
+            
+            var $a = $('#box #a');
+            $a.hover(function(){
+                $a.css({
+                    'backgroundImage':'url("img_1/demo_8_2.jpg")',
+                    'backgroundSize':'100% 100%'
+            });
+            },function(){
+                $a.css({
+                    'backgroundImage':'url("img_1/demo_8_1.jpg")',
+                    'backgroundSize':'100% 100%'
+                });
+            });
+
+            var $banner = $('#banner');
+            var $picLi = $('#banner .pic li');
+            var index = 0;
+
+            $banner.hover(function(){
+
+                index++;
+                console.log(index);
+                if(index>1) { index = 0};
+                $picLi.eq(index).stop(true).fadeIn().siblings().stop(true).fadeOut();
+            });
+           
+
+
+            
+
+
+
+
+        });
+    
+    
+    
+    
+    </script>
+
+    
+</body>
+</html>

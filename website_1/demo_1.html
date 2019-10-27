@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>高斯模糊背景</title>
+
+    <style type="text/css">
+	.bg{
+    background-image:url(LOL_1.jpg);
+    width:100%;
+    height:750px;
+    line-height:750px;
+	}
+	.bg-blur{
+    float:left;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+	<!--模糊度 ：越高越模糊 -->
+    -webkit-filter: blur(2px);  
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter:blur(2px);
+ 
+	}
+	.content{
+	font-size:10px;
+    font-weight:normal;
+	color: #00F
+	}
+	.font-content{
+    position:absolute;
+    width:700px;
+    height:700px;
+    margin:20px;
+    text-align:center;
+    line-height:700px;
+    left:50%;
+    top:50%;
+    transform: translate3d(-50%,-50%,0);
+    /* border:2px solid red; */
+	}
+
+	</style>
+</head>
+<body>
+    <div>
+        <div class="bg bg-blur"></div>
+        <div class="content font-content">欢迎来到十三的世界</div>
+
+    </div>
+</body>
+</html>

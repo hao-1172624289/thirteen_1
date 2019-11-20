@@ -23,9 +23,6 @@
 </template>
 <script src=""></script>
 <script type="text/ecmascript-6">
-import {getRecommend} from '../../api/recommend';
-import {ERR_OK} from '../../api/config';
-
 
 
     export default {
@@ -51,7 +48,6 @@ import {ERR_OK} from '../../api/config';
                     type:"get",
                     dataType:"jsonp", //解决跨域
                     url:"https://api.jisuapi.com/news/get?channel=%E5%A4%B4%E6%9D%A1&start=0&num=10&appkey=80fc4ac4aec8c7f7",
-                    data:{user_id:1},
                     success:function(data){
                         console.log(data);
                         // that.newsList = data.result.list;
@@ -60,19 +56,12 @@ import {ERR_OK} from '../../api/config';
                         for(var i=0;i<NewData.length;i++){
                             NewData[i].id = i;
                         }
-                        that.newsList = NewData;
-                   
-
-                        
+                        that.newsList = NewData;    
                     }
                 })
             })
         },
-        // $set() {
-        //     addNewsList() {
-        //         this.newsList.id = 
-        //     }
-        // }
+ 
 
 
     }

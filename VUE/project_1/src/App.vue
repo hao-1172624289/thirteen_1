@@ -2,7 +2,7 @@
   <div >
   <!-- 顶部标题栏 -->
     <mt-header title="信息管理系统"></mt-header>
-    <router-view/>
+    <router-view/> 
 
 <!-- 底部tabbar -->
 <mt-tabbar v-model="selected">

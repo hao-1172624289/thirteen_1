@@ -1,11 +1,12 @@
 <template>
   <div>
-  <mt-swipe :auto="4000">
+  <mt-swipe>
   <!-- v-for组件的时候需要给key,避免vue计算key，来提升性能 -->
   <!-- key就是位置的标识 -->
-    <mt-swipe-item v-for="(item,index) in imgs" :key="index" >
+    <!-- <mt-swipe-item v-for="(item,index) in imgs" :key="index" >
         <img :src="item.img" alt="">
-    </mt-swipe-item>
+    </mt-swipe-item> -->
+      <img :src="imgs[n]" style="height:100%">
   </mt-swipe>
 
   <!-- 下有九宫格 -->
@@ -20,8 +21,6 @@
         </my-ul>
     </div>
 
-
-
   </div>
 </template>
 
@@ -30,7 +29,13 @@ export default {
   name: 'Home',
   data () {
     return {
-       imgs:[],// 轮播图数据
+      n:0,
+      imgs: [require("@/assets/img/1.jpg"),
+            require("@/assets/img/2.jpg"),
+            require("@/assets/img/3.jpg"),
+            require("@/assets/img/4.jpg"),
+            require("@/assets/img/5.jpg"),
+            require("@/assets/img/6.jpg")], // 轮播图数据
        modules:[{
         title:'新闻资讯',className:'back-news',route:{name:'NewsList'}
        },{
@@ -48,12 +53,30 @@ export default {
   },
   created () {
 
-    this.$axios.get('getlunbo')
-    .then(res=>{
-      this.imgs = res.data.message;
-    })
-    .catch(err=>console.log(err));
-  }
+    // this.$axios.get('getlunbo')
+    // .then(res=>{
+    //   this.imgs = res.data.message;
+    // })
+    // .catch(err=>console.log(err));
+  },
+  methods: {
+ 
+    Banner() {
+      this.n++;
+      if(this.n == this.imgs.length){
+        this.n = 0;
+      }
+    
+    },
+    TimerBanner() {
+      setInterval(this.Banner,4000);
+      
+    }
+  },
+  mounted() {
+    this.TimerBanner();
+  },
+
 }
 </script>
 
@@ -65,6 +88,8 @@ export default {
 }
 .mint-swipe img {
   width: 100%;
+  margin-bottom: 2px;
+  
 }
 
 /*九宫格样式*/

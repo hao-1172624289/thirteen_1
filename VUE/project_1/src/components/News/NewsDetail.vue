@@ -16,12 +16,16 @@
         data() {
             return {
                 newsInfo:{}, // 新闻详情数据
+                id:-1
             }
         },
         created() {
             console.log(this.$route.params)
             // 1: 获取路由参数
-            let { id } = this.$route.params;
+            // let { id } = this.$route.params;
+            
+            var id = this.$route.params.id;
+            this.id = id;
             // // 2: 拼接后台url发起请求
             // let url = 'getnew/' + id;
             // this.$axios.get(url)
@@ -46,7 +50,8 @@
                         for(var i=0;i<NewData.length;i++){
                             NewData[i].id = i;
                         }
-                        that.newsInfo = NewData;
+                        that.newsInfo = NewData[that.id];
+                     
                     }
                 })
             })

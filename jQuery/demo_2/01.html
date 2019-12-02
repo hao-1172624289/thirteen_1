@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01</title>
+    <style>
+        #a{
+            width: 300px;
+            height: 300px;
+            border: 5px solid #000;
+            margin: 10px auto;
+            padding: 10px;
+            position: relative;
+            top:100px;
+            font-size: 50px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="a"></div>
+    <div id="b"></div>
+
+<script language="javascript" src="../src/js/jquery-3.4.1.min.js"></script>    
+<script>
+    var oa = document.querySelector('div');
+    var ob = document.getElementById('b');
+    
+    var y1 = oa.offsetTop;      //容器到其包含块顶部的距离，粗略的说法可以理解为其父元素 offsetTop=top+margin-top+border-top
+    var y2 = oa.clientTop;      // 容器内部相对于容器本身的top偏移，实际就是 上border-width
+    var y3 = oa.scrollTop;      //Y轴的滚动条没有，或滚到最上时，是0；y轴的滚动条滚到最下时是 scrollHeight-clientHeight（很好理解）
+
+    var h1 = oa.offsetHeight;   // 可理解为div的可视高度,样式的height+上下padding
+    var h2 = oa.clientHeight;   // 可理解为内部可视区高度+上下padding（如果没有限制div的height，即height是自适应的，一般是scrollHeight==clientHeight）
+    var h3 = oa.scrollHeight;   // 可理解为div的可视高度，样式的height+上下padding+上下border-width
+
+    ob.innerHTML = 'offsetTop = '+ y1+ ' '+'clientTop = '+y2+' '+'scrollTop = '+y3;
+    
+    console.log('offsetTop='+y1);  
+    console.log('clientTop='+y2);  
+    console.log('scrollTop='+y3);  
+
+    console.log('offsetHeight='+h1);  //clientHeight=height+padding
+    console.log('clientHeight='+h2);  //scrollHeight==clientHeight
+    console.log('scrollHeight='+h3);  //offsetHeight==height+padding+border
+
+</script>
+
+
+</body>
+</html>

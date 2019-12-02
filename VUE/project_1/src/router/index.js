@@ -35,20 +35,23 @@ export default new Router({
       component: Search
     },
     {
-      path: '/news/List',
+      path: '/News/List',
       name: 'NewsList',
       component: NewsList
     },
     {
-      path: '/news/detail/:id',
+      path: '/News/detail/:id',
       name: 'NewsDetail',
       component: NewsDetail
     },
     {
-      path: '/shop/List',
+      path: '/Shop/List',
       name: 'shopList',
       component: shopList
     },
+    {
+      path:'/'
+    }
  
 
   ]

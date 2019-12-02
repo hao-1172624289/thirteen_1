@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo_1</title>
+    <style type="text/css">
+        *{
+            margin: 0; 
+            padding: 0;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        #banner{
+            width:100%;
+            min-width: 960px;
+            margin: 60px auto;
+        }
+
+        #pic{
+            width:960px;
+            height: 540px;
+            margin: 0px auto;
+            border: 1px solid #000;
+            position: relative;
+    
+        }
+
+        #pic ul li{
+            width:960px;
+            height: 540px;
+            position: absolute;
+            float: left;
+            display: none;
+        }
+
+        #pic .picLeft,.picRight {
+            width: 32px;
+            height: 63px;
+            cursor: pointer;
+            position: absolute;
+            top:50%;
+            margin-top: -31px;        
+        }
+
+        .picLeft{
+            left: -96px;
+            background: url('./img/arrow.jpg') left;
+        }
+
+        .picRight{
+            right: -96px;
+            background: url('./img/arrow.jpg') right;
+        }
+
+
+        #tab{
+            width: 80%;
+            height:100px;
+            position: relative;
+            border: 1px solid black;
+            margin: 60px auto;
+            overflow: hidden;   
+        }
+
+        #tab ul{
+            width: 1000%;
+            
+        }
+
+        #tab ul li{
+            width: 120px;
+            height: 68px;
+            margin: 16px 0 16px 35px;
+            float: left;
+            border: 1px solid slategray;
+        }
+
+        #tab ul li.on{
+            border: 3px solid red;
+        }
+
+        #tab .tabLeft,.tabRight{
+            width: 20px;
+            height: 100px;
+            position: absolute;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 100px;
+            background-color:#5496d8;      
+        }
+
+        #tab .tabLeft{
+            left: 0; 
+        }
+
+        #tab .tabRight{
+            right: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="banner">
+        <div id="pic">
+            <ul></ul>
+            <div class="picLeft"></div>
+            <div class="picRight"></div>
+        </div>   
+
+        <div id="tab">
+            <ul></ul>
+            <div class="tabLeft">&lt;</div>
+            <div class="tabRight">&gt;</div>
+        </div>
+    </div>
+
+
+
+<script language="javascript" src="../src/js/jquery-3.4.1.min.js"></script>    
+<script>
+        var $pic = $('#pic');
+        var $picUl = $('#pic ul');
+        var $tabUl = $('#tab ul');
+        var index =0;
+
+        var $picUlLi = null;
+        var $tabUlLi = null;
+        var $picLeft = $('#pic .picLeft');
+        var $picRight = $('#pic .picRight');
+        var $tabLeft = $('#tab .tabLeft');
+        var $tabRight = $('#tab .tabRight');
+
+        var timer1;
+
+        init();                                                 //初始化;主要是给UL加上LI
+        function init() {
+            for(var i=0;i<=17;i++){
+                var $li1 = $('<li></li>');
+                var $li2 = $('<li></li>');
+                var $li2_1 = $('<li class="on" style="background:url(./img/demo_0.jpg);background-size:cover"></li>');
+                $picUl.append($li1);
+                i==0?$tabUl.append($li2_1):$tabUl.append($li2);
+                $li1.css({'background':'url(./img/demo_'+i+'.jpg)','background-size':'cover'});
+                $li2.css({'background':'url(./img/demo_'+i+'.jpg)','background-size':'cover'});     
+            }
+            $picUlLi = $('#pic ul Li');
+            $tabUlLi = $('#tab ul li');
+            $picUlLi[0].style.display = 'block'; 
+        }
+
+        function show(){
+            $picUlLi.eq(index).stop(true).fadeIn(1000).siblings().stop(true).fadeOut(1000);
+            $tabUlLi.eq(index).addClass('on').siblings().removeClass('on');
+            $tabUl.stop().animate({
+                        marginLeft : (-160*index) + 'px'
+            },2000);
+        }
+
+        $pic.hover(function(){
+            clearInterval(timer1)
+        },function(){
+            timer1 = setInterval(function(){
+                index==17?index=0:index++;  
+                show();
+            },5000); 
+        })
+
+        $picLeft.click(function() {
+            index==0?index=17:index--;  
+            show();
+        });
+
+        $picRight.click(function(){
+            index==18?index=0:index++;  
+            show();
+        })
+
+        $tabUlLi.click(function(){
+            index = $(this).index();
+            $(this).addClass('on').siblings().removeClass('on');
+            $picUlLi.eq(index).stop(true).fadeIn(1000).siblings().stop(true).fadeOut(1000);
+        });
+
+        $tabRight.hover(function(){
+            clearInterval(timer1);
+            $(this).css('background-color','blue');
+        },function(){
+            $(this).css('background-color','#5496d8');
+            timer1 = setInterval(function(){
+                index==17?index=0:index++;  
+                show();
+            },5000); 
+        })
+
+        $tabLeft.hover(function(){
+            clearInterval(timer1);
+            $(this).css('background-color','blue');
+        },function(){
+            $(this).css('background-color','#5496d8');
+                timer1 = setInterval(function(){
+                index==17?index=0:index++;  
+                show();
+            },5000);
+        });
+
+        $tabRight.click(function(){
+            index==12?index=0:index+=2; 
+            $tabUl.stop().animate({
+					marginLeft : (-160*index) + 'px'
+				},2000);
+            show();
+        });
+
+        $tabLeft.click(function(){
+            $(this).css('background-color','blue');
+            index<=0?index=12:index-=2;
+            $tabUl.stop().animate({
+					marginLeft : (-10*index) + 'px'
+			},2000);
+            show();
+        });
+
+        timer1 = setInterval(function(){
+            index==17?index=0:index++;  
+            show();
+        },5000)
+</script>
+    
+</body>
+</html>

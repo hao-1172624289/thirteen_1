@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo_3</title>
+    <style type="text/css">
+        *{
+			margin : 0;
+			padding : 0;
+		}
+		
+		li{
+			list-style:none;
+		}
+		
+		#wrap{
+			width : 400px;
+			height: 500px;
+			margin: 100px;
+			border: 1px solid #000000;	
+		}
+
+        #wrap #pic{
+			width:400px;
+			height:400px;
+			position:relative;
+        
+		}
+
+        #wrap #pic img{
+            position: absolute;
+            top:0;
+            left:0;
+            /* display: none;  */
+		}
+
+        #wrap #tab{
+            width: 400px;
+            margin-top: 20px;
+         
+        }
+        #wrap #tab ul{
+            margin-left: 6px;
+        }
+
+        #wrap #tab ul li{
+            float: left;
+            width: 50px;
+            height: 50px;
+            margin: 0 12px;
+            position: relative;
+            border: 2px solid #ffff; 
+            transition: border 0.3s;
+            -moz-transition:border 0.3s;        /* Firefox 4 */
+            -webkit-transition: border 0.3s;    /* Safari 和 Chrome */
+            -o-transition: border 0.3s;         /* Opera */
+        }
+
+        #wrap #tab li.on{
+			border:2px solid #E2760A;
+		}
+		
+
+        #wrap #tab ul li img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        #wrap #pic .cover{
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url('./img/cover_bg.png');
+            cursor: move;
+            display: none;
+        }
+
+        #wrap #pic .show{
+            border: 1px solid #000;
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 500px;
+            display: none;
+            background-image: url('./img/demo_1.jpg');
+            background-repeat: no-repeat;
+        }
+    
+    
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <div id="pic">
+            <img src="./img/demo_1.jpg" width="400px" height="400px" />
+            <div class="cover"></div>
+            <div class="show"></div>
+        </div>
+
+        <div id="tab">
+                <ul>
+                    <li class="on"><img src="./img/demo_1.jpg" alt=""></li>
+                    <li><img src="./img/demo_2.jpg" alt=""></li>
+                    <li><img src="./img/demo_3.jpg" alt=""></li>
+                    <li><img src="./img/demo_4.jpg" alt=""></li>
+                    <li><img src="./img/demo_5.jpg" alt=""></li>
+                </ul>
+            </div>
+    </div>
+    <script src="../src/js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function(){
+            var $wrapPic = $('#wrap #pic');
+            var $wrapPicImg = $('#wrap #pic img');
+            var $wrapPicCover = $('#wrap #pic .cover');
+            var $wrapPicShow = $('#wrap #pic .show');
+
+            var $wrapTabLi = $('#wrap #tab ul li');
+            var $wrapTabLiImg = $('#wrap #tab ul li img');
+
+            var index = 0;
+            var imgArr = [];    
+            
+            var newTime = new Date();
+
+            init();
+            function init(){                    //根据图片尺寸调整图片在tab位置
+                $wrapTabLiImg.each(function(i){
+                    $(this).on('load',function(){
+                        var imgWidth = $(this).width();
+                        var imgHeight = $(this).height();
+                        //定宽度，改高度，适应图片
+                        if(imgWidth >= imgHeight ) {
+                            $(this).attr({
+                                width:50,
+                                height:50/imgWidth*imgHeight
+                            })	
+
+                            imgArr[i] = { width:1,
+                                        height:imgHeight/imgWidth,
+                                        imgW:imgWidth,
+                                        imgH:imgHeight
+                                        }	  
+                        }
+                        //定高度，改宽度，适应图片
+                        else {
+                            $(this).attr({
+                                width:50/imgHeight*imgWidth,
+                                height:50
+                            })
+                            
+                            imgArr[i] = { width:imgWidth/imgHeight,
+                                        height:1,
+                                        imgW:imgWidth,
+                                        imgH:imgHeight
+                                        }	                           
+            
+                            $(this).css({
+                                left:(50-50/imgHeight*imgWidth)/2
+                            });
+                        }
+                        $(this).show();
+
+                    });
+
+                });
+
+
+            }
+
+
+            $wrapTabLi.hover(function(){
+                $(this).addClass('on').siblings().removeClass('on');
+                index = $(this).index();
+                var tabSrc = $(this).find('img').attr('src');
+  
+                $wrapPicImg.prop({
+                    src:tabSrc,
+                    width:imgArr[index].width*400,
+                    height:imgArr[index].height*400
+                });
+
+                //根据图片尺寸调整图片在pic位置
+                $wrapPicImg.css({
+                    top:(400-imgArr[index].height*400)/2,
+                    left:(400-imgArr[index].width*400)/2
+                });
+
+                $wrapPicShow.css('backgroundImage' , 'url('+tabSrc+')');
+            });
+
+            $wrapPic.mousemove(function(ev){
+                if( new Date - newTime>10 ){
+                    newTime = new Date();
+                $wrapPicCover.show();
+                $wrapPicShow.show();
+
+                var pageX = ev.pageX;
+                var pageY = ev.pageY;
+              
+                var picOffsetTop = $(this).offset().top;
+                var picOffsetLeft = $(this).offset().left;
+                
+                //遮罩层cover移动的距离(x=>left + y=>top)
+                var x = pageX - picOffsetLeft - $wrapPicCover.width()/2;
+                var y = pageY - picOffsetTop - $wrapPicCover.height()/2;
+        
+                //控制遮罩层的显示范围
+                x = Math.max(($(this).width()-imgArr[index].width*400)/2,x);
+                x = Math.min(x,$(this).width()-$wrapPicCover.width()-($(this).width()-imgArr[index].width*400)/2);  //bug
+                
+                y = Math.max(0,y);
+                y = Math.min(y,$(this).height()-$wrapPicCover.height());
+         
+                $wrapPicCover.css({
+                    top:y + 'px',
+                    left:x + 'px'
+                })
+                
+                //等比例放大并显示
+                $wrapPicShow.css('backgroundPosition',(-(x/($wrapPic.width()-$wrapPicCover.width()))*(imgArr[index].imgW-$wrapPicShow.width())) +'px'+' '+(-(y/($wrapPic.height()-$wrapPicCover.height()))*(imgArr[index].imgH-$wrapPicShow.height())) +'px');
+        
+            }}).mouseleave(function(ev){
+                $wrapPicCover.hide();
+                $wrapPicShow.hide();
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        });
+    </script>
+
+</body>
+</html>

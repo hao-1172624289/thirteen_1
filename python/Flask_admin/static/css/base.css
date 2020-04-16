@@ -1,0 +1,25 @@
+body{
+    background-color: #f3f3f3;
+    font-family: '微软雅黑';
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    width: 300px;
+    height: 100%;
+    font-size: 24px;
+    font-weight: bold;
+    /*background: url("../img/logo.png");*/
+    /*background-size: 100% 100%;*/
+}
+
+.main{
+    width: 730px;
+    margin: 60px auto;
+    overflow: hidden;
+    background-color:#fff;
+}

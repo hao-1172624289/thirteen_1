@@ -1,0 +1,18 @@
+{% extends './another/base.html' %}
+{% block title %}注册{% endblock %}
+{% block head %}
+{{ url_for('static',filename='css/login.css') }}
+{% endblock %}
+
+{% block main %}
+    <h3 style="text-align: center">登录</h3>
+    <div class="form-contain">
+        <div class="form-group">
+            <input type="text" placeholder="手机号码" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="密码" class="form-control">
+        </div>
+    </div>
+
+{% endblock %}

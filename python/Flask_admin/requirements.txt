@@ -1,6 +1,6 @@
 alembic==1.0.10
 appdirs==1.4.3
-Babel==2.8.0
+Babel==2.9.1
 blinker==1.4
 Click==7.0
 distlib==0.3.0
